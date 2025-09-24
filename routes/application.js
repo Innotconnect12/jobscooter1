@@ -13,6 +13,7 @@ router.post('/start-session', (req, res) => {
     try {
         const sessionToken = uuidv4();
         const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+        const mysqlExpiresAt = expiresAt.toISOString().slice(0, 19).replace('T', ' '); // "2025-09-25 19:01:39"
 
         const db = getDb(req);
 
@@ -27,7 +28,7 @@ router.post('/start-session', (req, res) => {
 
             res.json({
                 sessionToken,
-                expiresAt: expiresAt,
+                expiresAt: mysqlExpiresAt,
                 message: 'Application session started'
             });
         });
