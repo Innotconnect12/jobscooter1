@@ -26,7 +26,7 @@ router.post('/start-session', (req, res) => {
 
             res.json({
                 sessionToken,
-                expiresAt: mysqlExpiresAt.toISOString(),
+                expiresAt: expiresAt.toISOString(),
                 message: 'Application session started'
             });
         });
