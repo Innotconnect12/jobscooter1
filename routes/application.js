@@ -13,12 +13,16 @@ router.post('/start-session', (req, res) => {
     try {
         const sessionToken = uuidv4();
         const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+
+        // Format for MySQL DATETIME/TIMESTAMP
+        const mysqlExpiresAt = expiresAt.toISOString().slice(0, 19).replace('T', ' '); // "2025-09-25 19:20:48"
+        
         const db = getDb(req);
 
         db.query(`
             INSERT INTO application_sessions (session_token, step_completed, expires_at, created_at)
             VALUES (?, 0, ?, NOW())
-        `, [sessionToken, expiresAt.toISOString()], (err, result) => {
+        `, [sessionToken, mysqlExpiresAt], (err, result) => {
             if (err) {
                 console.error('Session creation error:', err);
                 return res.status(500).json({ error: 'Failed to create session' });
@@ -26,7 +30,7 @@ router.post('/start-session', (req, res) => {
 
             res.json({
                 sessionToken,
-                expiresAt: expiresAt.toISOString(),
+                expiresAt: mysqlExpiresAt,
                 message: 'Application session started'
             });
         });
