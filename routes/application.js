@@ -19,7 +19,7 @@ router.post('/start-session', (req, res) => {
         db.query(`
             INSERT INTO application_sessions (session_token, step_completed, expires_at, created_at)
             VALUES (?, 0, ?, NOW())
-        `, [sessionToken, expiresAt.toISOString()], (err, result) => {
+        `, [sessionToken, expiresAt], (err, result) => {
             if (err) {
                 console.error('Session creation error:', err);
                 return res.status(500).json({ error: 'Failed to create session' });
@@ -27,7 +27,7 @@ router.post('/start-session', (req, res) => {
 
             res.json({
                 sessionToken,
-                expiresAt: expiresAt.toISOString(),
+                expiresAt: expiresAt,
                 message: 'Application session started'
             });
         });
