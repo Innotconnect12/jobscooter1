@@ -1,0 +1,18 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="75" cy="75" r="75" fill="url(#avatarGradient)" />
+  
+  <!-- Person icon -->
+  <!-- Head -->
+  <circle cx="75" cy="55" r="25" fill="#ffffff" opacity="0.9" />
+  
+  <!-- Body -->
+  <path d="M 35 130 C 35 105, 52 85, 75 85 C 98 85, 115 105, 115 130 L 115 150 L 35 150 Z" fill="#ffffff" opacity="0.9" />
+</svg>

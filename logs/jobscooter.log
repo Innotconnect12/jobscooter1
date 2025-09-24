@@ -1,0 +1,245 @@
+[2025-09-22T00:22:11.428Z] Initializing database schema...
+[2025-09-22T00:22:11.436Z] ⚠️ OCR (Tesseract) is not available on this server. Document processing will use fallback methods.
+[2025-09-22T00:22:11.444Z] 
+🚀 JobScooter Prototype Server Running!
+[2025-09-22T00:22:11.444Z] 📍 Server: http://localhost:3001
+[2025-09-22T00:22:11.444Z] 🔧 Environment: production
+[2025-09-22T00:22:11.444Z] 💾 Database: MariaDB (jobscootercoz614_jobscooter)
+[2025-09-22T00:22:11.445Z] 📝 Logs: logs\jobscooter.log
+[2025-09-22T00:22:11.445Z] 
+📋 Available endpoints:
+[2025-09-22T00:22:11.445Z]    Landing Page: http://localhost:3001
+[2025-09-22T00:22:11.445Z]    API Info: http://localhost:3001/api/info
+[2025-09-22T00:22:11.445Z]    Health Check: http://localhost:3001/api/health
+[2025-09-22T00:22:11.445Z] 
+✅ Ready for applications!
+
+[2025-09-22T00:22:11.453Z] Please ensure MySQL/MariaDB server is running and credentials are correct
+[2025-09-24T07:43:19.515Z] Initializing database schema...
+[2025-09-24T07:43:19.565Z] ⚠️ OCR (Tesseract) is not available on this server. Document processing will use fallback methods.
+[2025-09-24T07:43:19.606Z] 
+🚀 JobScooter Prototype Server Running!
+[2025-09-24T07:43:19.607Z] 📍 Server: http://localhost:3001
+[2025-09-24T07:43:19.611Z] 🔧 Environment: production
+[2025-09-24T07:43:19.613Z] 💾 Database: MariaDB (jobscootercoz614_jobscooter)
+[2025-09-24T07:43:19.624Z] 📝 Logs: logs\jobscooter.log
+[2025-09-24T07:43:19.642Z] 
+📋 Available endpoints:
+[2025-09-24T07:43:19.660Z]    Landing Page: http://localhost:3001
+[2025-09-24T07:43:19.697Z]    API Info: http://localhost:3001/api/info
+[2025-09-24T07:43:19.740Z]    Health Check: http://localhost:3001/api/health
+[2025-09-24T07:43:19.764Z] 
+✅ Ready for applications!
+
+[2025-09-24T07:43:19.881Z] Connected to MariaDB database
+[2025-09-24T07:43:19.891Z] Statement failed: DECLARE languageScore INT DEFAULT 0...
+[2025-09-24T07:43:19.905Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE languageScore INT DEFAULT 0' at line 1
+[2025-09-24T07:43:19.922Z] Statement failed: DECLARE certificateScore INT DEFAULT 0...
+[2025-09-24T07:43:19.939Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE certificateScore INT DEFAULT 0' at line 1
+[2025-09-24T07:43:19.942Z] Statement failed: DECLARE completenessScore INT DEFAULT 0...
+[2025-09-24T07:43:19.946Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE completenessScore INT DEFAULT 0' at line 1
+[2025-09-24T07:43:19.956Z] Statement failed: DECLARE consistencyScore INT DEFAULT 0...
+[2025-09-24T07:43:19.974Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE consistencyScore INT DEFAULT 0' at line 1
+[2025-09-24T07:43:20.008Z] Statement failed: DECLARE totalScore INT DEFAULT 0...
+[2025-09-24T07:43:20.011Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE totalScore INT DEFAULT 0' at line 1
+[2025-09-24T07:43:20.020Z] Statement failed: DECLARE finalStatus VARCHAR(10) DEFAULT 'red'...
+[2025-09-24T07:43:20.022Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE finalStatus VARCHAR(10) DEFAULT 'red'' at line 1
+[2025-09-24T07:43:20.025Z] Statement failed: DECLARE certCount INT DEFAULT 0...
+[2025-09-24T07:43:20.028Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE certCount INT DEFAULT 0' at line 1
+[2025-09-24T07:43:20.030Z] Statement failed: DECLARE langCount INT DEFAULT 0...
+[2025-09-24T07:43:20.031Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE langCount INT DEFAULT 0' at line 1
+[2025-09-24T07:43:20.034Z] Statement failed: DECLARE hasProfilePicture BOOLEAN DEFAULT FALSE...
+[2025-09-24T07:43:20.039Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE hasProfilePicture BOOLEAN DEFAULT FALSE' at line 1
+[2025-09-24T07:43:20.051Z] Statement failed: DECLARE hasVideo BOOLEAN DEFAULT FALSE...
+[2025-09-24T07:43:20.054Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE hasVideo BOOLEAN DEFAULT FALSE' at line 1
+[2025-09-24T07:43:20.057Z] Statement failed: DECLARE completionPercent INT DEFAULT 0...
+[2025-09-24T07:43:20.058Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DECLARE completionPercent INT DEFAULT 0' at line 1
+[2025-09-24T07:43:20.066Z] Statement failed: ELSEIF totalScore >= 50 THEN
+        SET finalStatus = 'yellow'...
+[2025-09-24T07:43:20.086Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ELSEIF totalScore >= 50 THEN
+        SET finalStatus = 'yellow'' at line 1
+[2025-09-24T07:43:20.110Z] Statement failed: ELSE
+        SET finalStatus = 'red'...
+[2025-09-24T07:43:20.124Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ELSE
+        SET finalStatus = 'red'' at line 2
+[2025-09-24T07:43:20.128Z] Statement failed: END IF...
+[2025-09-24T07:43:20.139Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END IF' at line 1
+[2025-09-24T07:43:20.145Z] Statement failed: END...
+[2025-09-24T07:43:20.154Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END' at line 1
+[2025-09-24T07:43:20.166Z] Statement failed: Win64...
+[2025-09-24T07:43:20.170Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.180Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.191Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.229Z] Statement failed: Win64...
+[2025-09-24T07:43:20.231Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.265Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.292Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.308Z] Statement failed: Win64...
+[2025-09-24T07:43:20.311Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.339Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.343Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.358Z] Statement failed: Win64...
+[2025-09-24T07:43:20.364Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.395Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.395Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.405Z] Statement failed: Win64...
+[2025-09-24T07:43:20.406Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.409Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.409Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.411Z] Statement failed: Win64...
+[2025-09-24T07:43:20.412Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.423Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.423Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.428Z] Statement failed: Win64...
+[2025-09-24T07:43:20.429Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.433Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.434Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.441Z] Statement failed: Win64...
+[2025-09-24T07:43:20.441Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.446Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.447Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.457Z] Statement failed: Win64...
+[2025-09-24T07:43:20.458Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.463Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.463Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.471Z] Statement failed: Win64...
+[2025-09-24T07:43:20.471Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.510Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.513Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.525Z] Statement failed: Win64...
+[2025-09-24T07:43:20.526Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Win64' at line 1
+[2025-09-24T07:43:20.529Z] Statement failed: x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '127.0.0.1', NULL, NULL...
+[2025-09-24T07:43:20.542Z] Error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', ...' at line 1
+[2025-09-24T07:43:20.548Z] Statement failed: CREATE ALGORITHM=UNDEFINED DEFINER=`jobscootercoz614_jobscooter`@`localhost` SQL SECURITY DEFINER VI...
+[2025-09-24T07:43:20.556Z] Error: Table 'applicant_profiles_with_scores' already exists
+[2025-09-24T07:43:20.561Z] Statement failed: CREATE ALGORITHM=UNDEFINED DEFINER=`jobscootercoz614_jobscooter`@`localhost` SQL SECURITY DEFINER VI...
+[2025-09-24T07:43:20.573Z] Error: Table 'subscriber_statistics' already exists
+[2025-09-24T07:43:20.575Z] Database schema initialization completed
+[2025-09-24T07:45:27.825Z] 🔄 Starting Step 1: ID Processing and Account Creation...
+[2025-09-24T07:45:27.827Z] 🤖 Processing ID document with AI...
+[2025-09-24T07:45:27.829Z] Processing ID document: public\uploads\ids\1758699927804-85ff36bd-16f6-41f1-9a9c-7a3a57216042.jpeg
+[2025-09-24T07:45:27.833Z] 🔄 Advanced preprocessing for Namibian ID: public\uploads\ids\1758699927804-85ff36bd-16f6-41f1-9a9c-7a3a57216042.jpeg
+[2025-09-24T07:45:29.386Z] ✅ Image preprocessed successfully
+[2025-09-24T07:45:29.387Z] 🤖 Initializing OCR worker for Namibian ID processing...
+[2025-09-24T07:45:30.874Z] ✅ OCR worker configured for ID documents
+[2025-09-24T07:45:30.874Z] 🔍 Extracting text from processed image...
+[2025-09-24T07:45:32.884Z] 📊 OCR confidence: 52 %
+[2025-09-24T07:45:32.886Z] 🔍 Raw OCR Text for Namibian ID:
+[2025-09-24T07:45:32.886Z] ============================================================
+[2025-09-24T07:45:32.891Z] REPUBLIC OF NAMIBIA YM.
+     NATIONAL IDENTITY CARD    L 3/7
+B          .           021 1 15  0030  5   ) CR
+       MUDJANIMA      IEE
+                  FIRST NAME(S) SR
+ISMAEL NGENOTATEQPOAL).
+TT                   GEL     )
+I               T
+[2025-09-24T07:45:32.906Z] ============================================================
+[2025-09-24T07:45:32.926Z] 🧹 Cleaned text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T07:45:32.927Z] 📝 Processing Namibian ID structure: ID Number -> Surname -> First Name
+[2025-09-24T07:45:32.938Z] 🔍 Full OCR text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T07:45:32.939Z] 🎯 Step 1: Extracting Namibian ID Number (first field)...
+[2025-09-24T07:45:32.941Z] 🧠 Smart OCR pattern recognition for common ID patterns...
+[2025-09-24T07:45:32.942Z] 🎯 Found smart OCR pattern: O21 1 15 OO3O 5
+[2025-09-24T07:45:32.943Z] 🔄 Converted OCR pattern to: 02111500305
+[2025-09-24T07:45:32.953Z] ✅ Smart ID conversion successful: 02 1115 0030 5
+[2025-09-24T07:45:32.954Z] 📅 Birth Date: 2002-11-15 | 🎂 Age: 23
+[2025-09-24T07:45:32.956Z] 🎯 Step 2: Extracting Namibian Surname (second field)...
+[2025-09-24T07:45:32.958Z] ✅ Surname found (capitalized word): MUDJANIMA
+[2025-09-24T07:45:32.960Z] 📝 Other capital words found: MUDJANIMA,ISMAEL,NGENOTATEQPOAL
+[2025-09-24T07:45:32.962Z] 🎯 Step 3: Extracting Namibian First Names (third field)...
+[2025-09-24T07:45:32.968Z] ✅ First name found (generic fallback): IEE
+[2025-09-24T07:45:32.974Z] 📋 Final extracted fields: [object Object]
+[2025-09-24T07:45:34.995Z] 🔒 ID document deleted for security
+[2025-09-24T08:28:25.942Z] 🔄 Starting Step 1: ID Processing and Account Creation...
+[2025-09-24T08:28:25.948Z] 🤖 Processing ID document with AI...
+[2025-09-24T08:28:26.003Z] Processing ID document: public\uploads\ids\1758702505922-2acfd05c-4b9a-46f9-a976-6c10bfc1dbae.jpeg
+[2025-09-24T08:28:26.006Z] 🔄 Advanced preprocessing for Namibian ID: public\uploads\ids\1758702505922-2acfd05c-4b9a-46f9-a976-6c10bfc1dbae.jpeg
+[2025-09-24T08:28:27.085Z] ✅ Image preprocessed successfully
+[2025-09-24T08:28:27.088Z] 🔍 Extracting text from processed image...
+[2025-09-24T08:28:28.691Z] 📊 OCR confidence: 52 %
+[2025-09-24T08:28:28.692Z] 🔍 Raw OCR Text for Namibian ID:
+[2025-09-24T08:28:28.692Z] ============================================================
+[2025-09-24T08:28:28.695Z] REPUBLIC OF NAMIBIA YM.
+     NATIONAL IDENTITY CARD    L 3/7
+B          .           021 1 15  0030  5   ) CR
+       MUDJANIMA      IEE
+                  FIRST NAME(S) SR
+ISMAEL NGENOTATEQPOAL).
+TT                   GEL     )
+I               T
+[2025-09-24T08:28:28.696Z] ============================================================
+[2025-09-24T08:28:28.698Z] 🧹 Cleaned text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T08:28:28.699Z] 📝 Processing Namibian ID structure: ID Number -> Surname -> First Name
+[2025-09-24T08:28:28.700Z] 🔍 Full OCR text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T08:28:28.701Z] 🎯 Step 1: Extracting Namibian ID Number (first field)...
+[2025-09-24T08:28:28.708Z] 🧠 Smart OCR pattern recognition for common ID patterns...
+[2025-09-24T08:28:28.714Z] 🎯 Found smart OCR pattern: O21 1 15 OO3O 5
+[2025-09-24T08:28:28.716Z] 🔄 Converted OCR pattern to: 02111500305
+[2025-09-24T08:28:28.717Z] ✅ Smart ID conversion successful: 02 1115 0030 5
+[2025-09-24T08:28:28.718Z] 📅 Birth Date: 2002-11-15 | 🎂 Age: 23
+[2025-09-24T08:28:28.720Z] 🎯 Step 2: Extracting Namibian Surname (second field)...
+[2025-09-24T08:28:28.724Z] ✅ Surname found (capitalized word): MUDJANIMA
+[2025-09-24T08:28:28.725Z] 📝 Other capital words found: MUDJANIMA,ISMAEL,NGENOTATEQPOAL
+[2025-09-24T08:28:28.733Z] 🎯 Step 3: Extracting Namibian First Names (third field)...
+[2025-09-24T08:28:28.736Z] ✅ First name found (generic fallback): IEE
+[2025-09-24T08:28:28.738Z] 📋 Final extracted fields: [object Object]
+[2025-09-24T08:28:30.754Z] 🔒 ID document deleted for security
+[2025-09-24T08:41:01.146Z] 🔄 Starting Step 1: ID Processing and Account Creation...
+[2025-09-24T08:41:01.156Z] 🤖 Processing ID document with AI...
+[2025-09-24T08:41:01.158Z] Processing ID document: public\uploads\ids\1758703261098-597aa89e-b2c3-411f-aee0-f7c8dbfabd1b.jpeg
+[2025-09-24T08:41:01.160Z] 🔄 Advanced preprocessing for Namibian ID: public\uploads\ids\1758703261098-597aa89e-b2c3-411f-aee0-f7c8dbfabd1b.jpeg
+[2025-09-24T08:41:02.561Z] ✅ Image preprocessed successfully
+[2025-09-24T08:41:02.580Z] 🔍 Extracting text from processed image...
+[2025-09-24T08:41:04.676Z] 📊 OCR confidence: 52 %
+[2025-09-24T08:41:04.677Z] 🔍 Raw OCR Text for Namibian ID:
+[2025-09-24T08:41:04.678Z] ============================================================
+[2025-09-24T08:41:04.679Z] REPUBLIC OF NAMIBIA YM.
+     NATIONAL IDENTITY CARD    L 3/7
+B          .           021 1 15  0030  5   ) CR
+       MUDJANIMA      IEE
+                  FIRST NAME(S) SR
+ISMAEL NGENOTATEQPOAL).
+TT                   GEL     )
+I               T
+[2025-09-24T08:41:04.680Z] ============================================================
+[2025-09-24T08:41:04.685Z] 🧹 Cleaned text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T08:41:04.696Z] 📝 Processing Namibian ID structure: ID Number -> Surname -> First Name
+[2025-09-24T08:41:04.704Z] 🔍 Full OCR text: REPUBLIC OF NAMIBIA YM. NATIONAL IDENTITY CARD L 3/7 B . O21 1 15 OO3O 5 ) CR MUDJANIMA IEE FIRST NAME(S) SR ISMAEL NGENOTATEQPOAL). TT GEL ) I T
+[2025-09-24T08:41:04.713Z] 🎯 Step 1: Extracting Namibian ID Number (first field)...
+[2025-09-24T08:41:04.739Z] 🧠 Smart OCR pattern recognition for common ID patterns...
+[2025-09-24T08:41:04.747Z] 🎯 Found smart OCR pattern: O21 1 15 OO3O 5
+[2025-09-24T08:41:04.758Z] 🔄 Converted OCR pattern to: 02111500305
+[2025-09-24T08:41:04.759Z] ✅ Smart ID conversion successful: 02 1115 0030 5
+[2025-09-24T08:41:04.761Z] 📅 Birth Date: 2002-11-15 | 🎂 Age: 23
+[2025-09-24T08:41:04.762Z] 🎯 Step 2: Extracting Namibian Surname (second field)...
+[2025-09-24T08:41:04.763Z] ✅ Surname found (capitalized word): MUDJANIMA
+[2025-09-24T08:41:04.768Z] 📝 Other capital words found: MUDJANIMA,ISMAEL,NGENOTATEQPOAL
+[2025-09-24T08:41:04.772Z] 🎯 Step 3: Extracting Namibian First Names (third field)...
+[2025-09-24T08:41:04.779Z] ✅ First name found (generic fallback): IEE
+[2025-09-24T08:41:04.790Z] 📋 Final extracted fields: [object Object]
+[2025-09-24T08:41:06.804Z] 🔒 ID document deleted for security
+[2025-09-24T08:41:29.938Z] 👤 Creating account with confirmed data...
+[2025-09-24T08:41:29.944Z] 📥 Received request body: [object Object]
+[2025-09-24T08:41:29.955Z] 🔍 Individual field values:
+[2025-09-24T08:41:29.956Z]   first_name: ISMAEL
+[2025-09-24T08:41:29.957Z]   surname: MUDJANIMA
+[2025-09-24T08:41:29.958Z]   email: mudjanimaismael100@gmail.com
+[2025-09-24T08:41:29.958Z]   phone: 0818342686
+[2025-09-24T08:41:29.959Z]   id_number: 02 1115 0030 5
+[2025-09-24T08:41:29.960Z]   gender: Male
+[2025-09-24T08:41:29.961Z]   country: REPUBLIC OF NAMIBIA
+[2025-09-24T08:41:30.617Z] 📧 Attempting to send email via SMTP...
+[2025-09-24T08:41:30.618Z] SMTP Host: sedap.info
+[2025-09-24T08:41:30.618Z] SMTP User: support@sedap.info
+[2025-09-24T08:41:30.619Z] To: mudjanimaismael100@gmail.com
+[2025-09-24T08:41:32.752Z] ✅ Welcome email sent successfully: <b6f8994c-a110-f751-0ea7-eb1e95e66e53@sedap.info>
+[2025-09-24T08:41:32.762Z] ✅ Account created successfully: js_mfxqj3ib_y6j6
+[2025-09-24T08:41:32.796Z] 🌍 Processing language selection for user: 24
+[2025-09-24T08:41:32.890Z] ✅ Language verification completed
+[2025-09-24T08:42:08.267Z] 🎓 Processing certificate with AI service: Paulus Kambinda - Advanced SQL.png
+[2025-09-24T08:42:08.310Z] Processing certificate: public\uploads\1758703328165-052a23e3-b91b-4282-98b2-7fbe1aca8488.png
+[2025-09-24T08:42:08.392Z] 🤖 Initializing OCR worker for Namibian ID processing...
+[2025-09-24T08:42:09.825Z] ✅ OCR worker configured for ID documents
+[2025-09-24T08:42:09.852Z] 🔍 Extracting text from processed image...
+[2025-09-24T08:42:15.105Z] 📊 OCR confidence: 79 %

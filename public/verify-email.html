@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - JobScooter</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .verification-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .loading {
+            display: block;
+        }
+        .result {
+            display: none;
+        }
+        .success {
+            color: #27ae60;
+        }
+        .error {
+            color: #e74c3c;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 10px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #5a67d8;
+        }
+        .button.secondary {
+            background: #6c757d;
+        }
+        .button.secondary:hover {
+            background: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <div id="loading" class="loading">
+            <h2>🔐 Verifying Your Email</h2>
+            <div class="spinner"></div>
+            <p>Please wait while we verify your email address...</p>
+        </div>
+
+        <div id="success" class="result success">
+            <h2>✅ Email Verified Successfully!</h2>
+            <p>Great! Your email address has been verified. Your JobScooter account is now active.</p>
+            
+            <h3>🎯 What's Next?</h3>
+            <ul style="text-align: left; max-width: 400px; margin: 20px auto;">
+                <li>Login to your account with your credentials</li>
+                <li>Complete your profile (languages, certificates)</li>
+                <li>Upload your media (photo, video)</li>
+                <li>Get your Traffic Light score</li>
+            </ul>
+
+            <div style="margin-top: 30px;">
+                <a href="/login" class="button">🔓 Login Now</a>
+                <a href="/" class="button secondary">🏠 Back to Home</a>
+            </div>
+        </div>
+
+        <div id="error" class="result error">
+            <h2>❌ Verification Failed</h2>
+            <p id="error-message">The verification link is invalid or has expired.</p>
+            
+            <h3>What can you do?</h3>
+            <ul style="text-align: left; max-width: 400px; margin: 20px auto;">
+                <li>Check if the link in your email is complete</li>
+                <li>Request a new verification email</li>
+                <li>Contact support if the problem persists</li>
+            </ul>
+
+            <div style="margin-top: 30px;">
+                <a href="/login" class="button">🔓 Try Login</a>
+                <a href="/" class="button secondary">🏠 Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Extract token from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        async function verifyEmail() {
+            if (!token) {
+                showError('Missing verification token');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/verify-email/${token}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    showSuccess();
+                } else {
+                    showError(data.error || 'Verification failed');
+                }
+            } catch (error) {
+                console.error('Verification error:', error);
+                showError('Network error. Please try again.');
+            }
+        }
+
+        function showSuccess() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error-message').textContent = message;
+        }
+
+        // Start verification automatically
+        verifyEmail();
+    </script>
+</body>
+</html>

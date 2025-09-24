@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - JobScooter</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-edit-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 10px;
+            color: white;
+        }
+
+        .profile-picture-section {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .current-profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .picture-upload-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            cursor: pointer;
+            color: white;
+        }
+
+        .picture-upload-overlay:hover {
+            opacity: 1;
+        }
+
+        .picture-upload-overlay i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .form-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        .readonly {
+            background: #e9ecef;
+            color: #6c757d;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .traffic-light-status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .traffic-light-status.green {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .traffic-light-status.yellow {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .traffic-light-status.red {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .form-sections {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .profile-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-edit-container">
+            <div class="profile-header">
+                <div class="profile-picture-section">
+                    <img id="current-profile-pic" src="/images/default-avatar.svg" alt="Profile Picture" class="current-profile-pic">
+                    <div class="picture-upload-overlay" id="picture-upload-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Change Photo</span>
+                    </div>
+                    <input type="file" id="profile-picture-input" accept="image/*" style="display: none;">
+                </div>
+                
+                <h1 id="profile-name">Loading...</h1>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="completion-percentage">0%</span>
+                        <div class="stat-label">Profile Complete</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="certificates-count">0</span>
+                        <div class="stat-label">Certificates</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="languages-count">0</span>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="traffic-light-status" id="traffic-light-status">Unknown</span>
+                        <div class="stat-label">Status</div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="profile-form">
+                <div class="form-sections">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first_name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="readonly" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date-of-birth">Date of Birth</label>
+                            <input type="date" id="date-of-birth" name="date_of_birth">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-globe"></i> Location & Background</h3>
+                        
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" id="nationality" name="nationality">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id-number">ID Number</label>
+                            <input type="text" id="id-number" name="id_number" class="readonly" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Professional Bio</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about your professional background and experience..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/dashboard" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Dashboard
+                    </a>
+                    
+                    <div style="display: flex; gap: 15px;">
+                        <button type="button" id="generate-cv-btn" class="btn btn-success">
+                            <i class="fas fa-file-pdf"></i>
+                            Generate CV
+                        </button>
+                        
+                        <button type="submit" id="save-profile-btn" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <div class="loading-text">Saving changes...</div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="/js/utils.js"></script>
+    <script src="/js/app-state.js"></script>
+    <script>
+        class ProfileEditor {
+            constructor() {
+                this.profileData = {};
+                this.init();
+            }
+
+            async init() {
+                // Check authentication
+                if (!AppState.user || !AppState.user.token) {
+                    window.location.href = '/login';
+                    return;
+                }
+
+                await this.loadProfile();
+                this.setupEventListeners();
+            }
+
+            async loadProfile() {
+                try {
+                    Utils.showLoading('Loading profile...');
+
+                    const response = await fetch('/api/profile', {
+                        headers: {
+                            'Authorization': `Bearer ${AppState.user.token}`
+                        }
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        this.profileData = data.user;
+                        this.populateForm();
+                        this.updateStats();
+                    } else {
+                        throw new Error(data.error || 'Failed to load profile');
+                    }
+                } catch (error) {
+                    console.error('Profile load error:', error);
+                    Utils.showToast('Error loading profile: ' + error.message, 'error');
+                } finally {
+                    Utils.hideLoading();
+                }
+            }
+
+            populateForm() {
+                const data = this.profileData;
+
+                // Update profile picture
+                const profilePic = document.getElementById('current-profile-pic');
+                if (data.profile_picture_url) {
+                    profilePic.src = data.profile_picture_url;
+                }
+
+                // Update profile name
+                document.getElementById('profile-name').textContent = 
+                    `${data.first_name || ''} ${data.surname || ''}`.trim() || 'Unnamed User';
+
+                // Populate form fields
+                document.getElementById('first-name').value = data.first_name || '';
+                document.getElementById('surname').value = data.surname || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('phone').value = data.phone || '';
+                document.getElementById('date-of-birth').value = data.date_of_birth || '';
+                document.getElementById('gender').value = data.gender || '';
+                document.getElementById('country').value = data.country || '';
+                document.getElementById('nationality').value = data.nationality || '';
+                document.getElementById('id-number').value = data.id_number || '';
+                document.getElementById('bio').value = data.bio || '';
+            }
+
+            updateStats() {
+                const data = this.profileData;
+                
+                document.getElementById('completion-percentage').textContent = 
+                    `${data.completion_percentage || 0}%`;
+                
+                document.getElementById('certificates-count').textContent = 
+                    data.certificates_count || 0;
+                
+                document.getElementById('languages-count').textContent = 
+                    data.languages_count || 0;
+
+                const statusElement = document.getElementById('traffic-light-status');
+                const status = data.traffic_status || 'red';
+                statusElement.textContent = status.toUpperCase();
+                statusElement.className = `traffic-light-status ${status}`;
+            }
+
+            setupEventListeners() {
+                // Profile picture upload
+                const pictureOverlay = document.getElementById('picture-upload-overlay');
+                const pictureInput = document.getElementById('profile-picture-input');
+
+                pictureOverlay.addEventListener('click', () => pictureInput.click());
+                pictureInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.handleProfilePictureUpload(e.target.files[0]);
+                    }
+                });
+
+                // Form submission
+                const form = document.getElementById('profile-form');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveProfile();
+                });
+
+                // Generate CV button
+                const cvButton = document.getElementById('generate-cv-btn');
+                cvButton.addEventListener('click', () => this.generateCV());
+            }
+
+            async handleProfilePictureUpload(file) {
+                try {
+                    Utils.showLoading('Uploading profile picture...');
+
+                    const formData = new FormData();
+                    formData.append('profile_picture', file);
+
+                    const response = await fetch('/api/documents/media/upload', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${AppState.user.token}`
+                        },
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Update profile picture preview
+                        const profilePic = document.getElementById('current-profile-pic');
+                        const reader = new FileReader();
+                        
+                        reader.onload = (e) => {
+                            profilePic.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+
+                        // Update profile data
+                        this.profileData.profile_picture_url = data.profilePicture.url;
+
+                        Utils.showToast('Profile picture updated successfully!', 'success');
+                        
+                        // Reload to get updated stats
+                        await this.loadProfile();
+                    } else {
+                        throw new Error(data.error || 'Upload failed');
+                    }
+                } catch (error) {
+                    console.error('Profile picture upload error:', error);
+                    Utils.showToast('Error uploading profile picture: ' + error.message, 'error');
+                } finally {
+                    Utils.hideLoading();
+                }
+            }
+
+            async saveProfile() {
+                try {
+                    Utils.showLoading('Saving profile...');
+
+                    const formData = new FormData(document.getElementById('profile-form'));
+                    const profileData = Object.fromEntries(formData.entries());
+
+                    const response = await fetch('/api/profile', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${AppState.user.token}`
+                        },
+                        body: JSON.stringify(profileData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        Utils.showToast('Profile updated successfully!', 'success');
+                        
+                        // Update profile name in header
+                        document.getElementById('profile-name').textContent = 
+                            `${profileData.first_name} ${profileData.surname}`;
+                        
+                        // Reload to get updated completion percentage
+                        await this.loadProfile();
+                    } else {
+                        throw new Error(data.error || 'Failed to save profile');
+                    }
+                } catch (error) {
+                    console.error('Profile save error:', error);
+                    Utils.showToast('Error saving profile: ' + error.message, 'error');
+                } finally {
+                    Utils.hideLoading();
+                }
+            }
+
+            async generateCV() {
+                try {
+                    Utils.showLoading('Generating CV...');
+
+                    const response = await fetch('/api/cv/generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${AppState.user.token}`
+                        },
+                        body: JSON.stringify({
+                            template: 'professional',
+                            format: 'html'
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        Utils.showToast('CV generated successfully!', 'success');
+                        
+                        // Open CV in new tab
+                        window.open(data.data.url, '_blank');
+                    } else {
+                        throw new Error(data.error || 'Failed to generate CV');
+                    }
+                } catch (error) {
+                    console.error('CV generation error:', error);
+                    Utils.showToast('Error generating CV: ' + error.message, 'error');
+                } finally {
+                    Utils.hideLoading();
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProfileEditor();
+        });
+    </script>
+</body>
+</html>

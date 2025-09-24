@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Enhanced Flow - JobScooter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .step {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .step h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        .success { background: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .info { background: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+        .credentials {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 JobScooter Enhanced Flow Test</h1>
+        <p>This page tests the new enhanced application flow with AI document processing and automatic account creation.</p>
+
+        <!-- Step 1: ID Upload (Simulated) -->
+        <div class="step">
+            <h3>Step 1: Test ID Processing (Manual Entry for Testing)</h3>
+            <p>In the real flow, you would upload an ID document for AI processing. For testing, we'll use manual entry.</p>
+            
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" id="first_name" value="John" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Surname:</label>
+                <input type="text" id="surname" value="Doe" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" id="email" value="john.doe@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Phone:</label>
+                <input type="tel" id="phone" value="+27123456789" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Country:</label>
+                <select id="country">
+                    <option value="South Africa">South Africa</option>
+                    <option value="Germany">Germany</option>
+                    <option value="United States">United States</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>ID Number:</label>
+                <input type="text" id="id_number" value="9001015800087" required>
+            </div>
+            
+            <button onclick="testManualAccountCreation()">Create Account (Manual Entry)</button>
+            <div id="step1-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Step 2: Test Email Verification -->
+        <div class="step">
+            <h3>Step 2: Test Email Verification</h3>
+            <p>After account creation, you would receive an email with a verification link. For testing, enter the token manually.</p>
+            
+            <div class="form-group">
+                <label>Verification Token (from account creation response):</label>
+                <input type="text" id="verification_token" placeholder="Enter token from Step 1 result">
+            </div>
+            
+            <button onclick="testEmailVerification()">Verify Email</button>
+            <div id="step2-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- Step 3: Test Language Selection -->
+        <div class="step">
+            <h3>Step 3: Test Language Selection</h3>
+            <p>Test the language selection with authentication.</p>
+            
+            <div class="form-group">
+                <label>JWT Token (from account creation response):</label>
+                <input type="text" id="jwt_token" placeholder="Enter JWT token from Step 1 result">
+            </div>
+            
+            <div class="form-group">
+                <label>Language Selection:</label>
+                <select id="languages">
+                    <option value="English">English</option>
+                    <option value="German">German</option>
+                    <option value="Both">Both</option>
+                </select>
+            </div>
+            
+            <button onclick="testLanguageSelection()">Save Languages</button>
+            <div id="step3-result" class="result" style="display: none;"></div>
+        </div>
+
+        <!-- API Endpoints Info -->
+        <div class="step">
+            <h3>📚 Available API Endpoints</h3>
+            <ul>
+                <li><strong>POST</strong> /api/application-enhanced/step1/process-id - Upload ID for AI processing</li>
+                <li><strong>POST</strong> /api/application-enhanced/step1/confirm-and-create-account - Create account with extracted data</li>
+                <li><strong>POST</strong> /api/application-enhanced/step1/manual-entry - Create account with manual entry</li>
+                <li><strong>GET</strong> /api/application-enhanced/verify-email?token=... - Verify email address</li>
+                <li><strong>POST</strong> /api/application-enhanced/step2/languages - Language selection (requires auth)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function testManualAccountCreation() {
+            const resultDiv = document.getElementById('step1-result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.innerHTML = '🔄 Creating account...';
+
+            try {
+                const data = {
+                    first_name: document.getElementById('first_name').value,
+                    surname: document.getElementById('surname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    country: document.getElementById('country').value,
+                    id_number: document.getElementById('id_number').value
+                };
+
+                const response = await fetch('/api/application-enhanced/step1/manual-entry', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <h4>✅ Account Created Successfully!</h4>
+                        <p><strong>Username:</strong> ${result.credentials.username}</p>
+                        <p><strong>Temporary Password:</strong> ${result.credentials.temporaryPassword}</p>
+                        <p><strong>Email Sent:</strong> ${result.emailSent ? 'Yes' : 'No'}</p>
+                        <p><strong>JWT Token:</strong> <code style="word-break: break-all;">${result.user.token}</code></p>
+                        <p><strong>Verification Token:</strong> <code>${result.user.verificationToken}</code></p>
+                        <p><strong>Profile URL:</strong> /profile/${result.user.profileSlug}</p>
+                    `;
+                    
+                    // Auto-fill tokens for next steps
+                    document.getElementById('verification_token').value = result.user.verificationToken;
+                    document.getElementById('jwt_token').value = result.user.token;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `❌ Error: ${result.error || 'Unknown error'}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+                console.error('Account creation error:', error);
+            }
+        }
+
+        async function testEmailVerification() {
+            const resultDiv = document.getElementById('step2-result');
+            const token = document.getElementById('verification_token').value;
+
+            if (!token) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '❌ Please enter a verification token';
+                return;
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.innerHTML = '🔄 Verifying email...';
+
+            try {
+                const response = await fetch(`/api/application-enhanced/verify-email?token=${token}`, {
+                    method: 'GET'
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <h4>✅ Email Verified Successfully!</h4>
+                        <p>${result.message}</p>
+                        <p><strong>User:</strong> ${result.user.first_name} ${result.user.surname}</p>
+                        <p><strong>Email:</strong> ${result.user.email}</p>
+                    `;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `❌ Error: ${result.error || 'Unknown error'}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+                console.error('Email verification error:', error);
+            }
+        }
+
+        async function testLanguageSelection() {
+            const resultDiv = document.getElementById('step3-result');
+            const token = document.getElementById('jwt_token').value;
+            const languages = document.getElementById('languages').value;
+
+            if (!token) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '❌ Please enter a JWT token';
+                return;
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.innerHTML = '🔄 Saving language selection...';
+
+            try {
+                const response = await fetch('/api/application-enhanced/step2/languages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ languages })
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <h4>✅ Languages Saved Successfully!</h4>
+                        <p><strong>Selected:</strong> ${result.data.languages}</p>
+                        <p><strong>German Verified:</strong> ${result.data.germanVerified ? 'Yes' : 'No'}</p>
+                        <p>${result.message}</p>
+                    `;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `❌ Error: ${result.error || 'Unknown error'}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+                console.error('Language selection error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

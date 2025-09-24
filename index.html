@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobScooter - AI-Powered Job Application Platform</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/components.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing-page" class="page active">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>JobScooter</span>
+                </div>
+                <nav class="nav">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                    <a href="/login" class="login-link">Login</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>JobScooter - Your AI-Powered Career Companion</h1>
+                    <p>Transform your job application experience with JobScooter! Our advanced AI technology automatically processes your ID documents, verifies your certificates, and creates professional profiles that employers trust. Get verified, get noticed, get hired!</p>
+                    
+                    <div class="hero-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-robot"></i>
+                            <span>AI extracts your data from ID documents instantly</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-certificate"></i>
+                            <span>Automatic certificate verification from accredited institutions</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-traffic-light"></i>
+                            <span>Traffic Light scoring system for employer confidence</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-globe"></i>
+                            <span>Multi-language support with verified language certificates</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span class="number">1000+</span>
+                            <span class="label">Applications Processed</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-certificate"></i>
+                            <span class="number">95%</span>
+                            <span class="label">Verification Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="number">3x</span>
+                            <span class="label">Faster Applications</span>
+                        </div>
+                    </div>
+
+                    <button class="cta-button" onclick="startApplication()">
+                        <i class="fas fa-rocket"></i>
+                        Start Your Application
+                    </button>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="traffic-light-demo">
+                        <div class="light green active">
+                            <i class="fas fa-check"></i>
+                            <span>Ready for Employers</span>
+                        </div>
+                        <div class="light yellow">
+                            <i class="fas fa-exclamation"></i>
+                            <span>Minor Improvements</span>
+                        </div>
+                        <div class="light red">
+                            <i class="fas fa-times"></i>
+                            <span>Needs Attention</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Why Choose JobScooter?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Document Processing</h3>
+                        <p>Advanced AI extracts and verifies your credentials automatically from ID documents and certificates.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-traffic-light"></i>
+                        <h3>Traffic Light System</h3>
+                        <p>Get instant feedback on your profile quality with our unique scoring system that employers trust.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Verified Credentials</h3>
+                        <p>We verify your certificates against accredited institutions to ensure authenticity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-language"></i>
+                        <h3>Language Verification</h3>
+                        <p>Prove your language skills with verified certificates from recognized institutions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Auto CV Generation</h3>
+                        <p>Professional CVs generated automatically from your verified information.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Public Profiles</h3>
+                        <p>Share your verified profile with employers through secure, tiered access controls.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Upload Your ID</h3>
+                            <p>AI extracts your personal information and creates your account automatically.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Verify Languages</h3>
+                            <p>Upload language certificates to verify your multilingual abilities.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Upload Certificates</h3>
+                            <p>Our AI analyzes and verifies your educational and professional qualifications.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Add Media</h3>
+                            <p>Upload your profile picture and record a video introduction.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Get Your Score</h3>
+                            <p>Receive your Traffic Light status and professional profile ready for employers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Pre-Application Page -->
+    <section id="pre-application-page" class="page">
+        <div class="container">
+            <div class="pre-app-content">
+                <h1>Before We Start</h1>
+                <p>Please read and understand the application process and legal agreements.</p>
+
+                <div class="process-overview">
+                    <h2>Application Process Overview</h2>
+                    <ul>
+                        <li>Upload and verify your ID document</li>
+                        <li>Select and verify your languages</li>
+                        <li>Upload your certificates for AI analysis</li>
+                        <li>Add profile picture and video introduction</li>
+                        <li>Review your generated profile and Traffic Light score</li>
+                    </ul>
+                    <p><strong>Estimated time:</strong> 15-30 minutes</p>
+                </div>
+
+                <div class="legal-agreements">
+                    <h2>Legal Agreements</h2>
+                    <div class="agreement">
+                        <label>
+                            <input type="checkbox" id="terms-checkbox">
+                            I agree to the <a href="#" onclick="showModal('terms')">Terms & Conditions</a>
+                        </label>
+                    </div>
+                    <div class="agreement">
+                        <label>
+                            <input type="checkbox" id="privacy-checkbox">
+                            I agree to the <a href="#" onclick="showModal('privacy')">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <div class="agreement">
+                        <label>
+                            <input type="checkbox" id="data-checkbox">
+                            I consent to <a href="#" onclick="showModal('data')">Data Processing</a>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="proceedToApplication()" disabled id="proceed-btn">
+                    Proceed to Application
+                </button>
+                <button class="btn btn-secondary" onclick="goBack()">
+                    Back to Landing
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Pages -->
+    <section id="application-page" class="page">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step-indicator" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span>ID Verification</span>
+                    </div>
+                    <div class="step-indicator" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span>Languages</span>
+                    </div>
+                    <div class="step-indicator" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span>Certificates</span>
+                    </div>
+                    <div class="step-indicator" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span>Media</span>
+                    </div>
+                    <div class="step-indicator" data-step="5">
+                        <div class="step-circle">5</div>
+                        <span>Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Content -->
+            <div class="step-content" id="step-content">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+
+            <!-- Navigation -->
+            <div class="step-navigation">
+                <button class="btn btn-secondary" onclick="previousStep()" id="prev-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="btn btn-primary" onclick="nextStep()" id="next-btn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Dashboard -->
+    <section id="dashboard-page" class="page">
+        <div class="container">
+            <div class="dashboard">
+                <header class="dashboard-header">
+                    <h1>Your Profile Dashboard</h1>
+                    <button class="btn btn-secondary" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </header>
+
+                <div class="dashboard-content">
+                    <div class="profile-overview">
+                        <div class="profile-card">
+                            <div class="profile-picture">
+                                <img id="profile-img" src="/images/default-avatar.svg" alt="Profile Picture">
+                            </div>
+                            <div class="profile-info">
+                                <h2 id="profile-name">John Doe</h2>
+                                <p id="profile-email">john.doe@example.com</p>
+                                <div class="traffic-light-status">
+                                    <div id="traffic-light" class="traffic-light">
+                                        <!-- Traffic light will be rendered here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="stat-card">
+                                <i class="fas fa-percentage"></i>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="completion-percentage">0%</span>
+                                    <span class="stat-label">Complete</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-certificate"></i>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="certificates-count">0</span>
+                                    <span class="stat-label">Certificates</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-language"></i>
+                                <div class="stat-info">
+                                    <span class="stat-value" id="languages-count">0</span>
+                                    <span class="stat-label">Languages</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-tabs">
+                        <button class="tab-button active" onclick="switchTab('overview')">Overview</button>
+                        <button class="tab-button" onclick="switchTab('certificates')">Certificates</button>
+                        <button class="tab-button" onclick="switchTab('profile')">Edit Profile</button>
+                        <button class="tab-button" onclick="switchTab('public')">Public Profile</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="overview-tab" class="tab-panel active">
+                            <!-- Overview content will be loaded here -->
+                        </div>
+                        <div id="certificates-tab" class="tab-panel">
+                            <!-- Certificates content will be loaded here -->
+                        </div>
+                        <div id="profile-tab" class="tab-panel">
+                            <!-- Profile editing content will be loaded here -->
+                        </div>
+                        <div id="public-tab" class="tab-panel">
+                            <!-- Public profile content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p id="loading-text">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+<script src="/js/main.js"></script>
+<script src="/js/application.js"></script>
+<script src="/js/traffic-light.js"></script>
+</body>
+</html>
